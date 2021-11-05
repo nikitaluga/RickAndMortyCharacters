@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/genderTV"
+        style="@style/AppTheme.Text.Auxiliary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gender"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/gender"
+        style="@style/AppTheme.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/genderTV"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Male" />
+
+    <TextView
+        android:id="@+id/originTV"
+        style="@style/AppTheme.Text.Auxiliary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/origin"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/genderTV" />
+
+    <TextView
+        android:id="@+id/origin"
+        style="@style/AppTheme.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/originTV"
+        app:layout_constraintTop_toBottomOf="@id/gender"
+        tools:text="Earth" />
+
+    <TextView
+        android:id="@+id/locationTV"
+        style="@style/AppTheme.Text.Auxiliary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/location"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/originTV" />
+
+    <TextView
+        android:id="@+id/location"
+        style="@style/AppTheme.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/locationTV"
+        app:layout_constraintTop_toBottomOf="@id/origin"
+        tools:text="Earth" />
+
+    <TextView
+        android:id="@+id/typeTV"
+        style="@style/AppTheme.Text.Auxiliary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/type"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/locationTV" />
+
+    <TextView
+        android:id="@+id/type"
+        style="@style/AppTheme.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/typeTV"
+        app:layout_constraintTop_toBottomOf="@id/location"
+        tools:text="Planet" />
+
+    <TextView
+        android:id="@+id/dimensionsTV"
+        style="@style/AppTheme.Text.Auxiliary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/dimensions"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/typeTV" />
+
+    <TextView
+        android:id="@+id/dimensions"
+        style="@style/AppTheme.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:gravity="end"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dimensionsTV"
+        app:layout_constraintTop_toBottomOf="@id/type"
+        tools:text="Dimensions C-137" />
+
+    <TextView
+        android:id="@+id/episodesTV"
+        style="@style/AppTheme.Text.Auxiliary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/episodes"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dimensionsTV" />
+
+    <TextView
+        android:id="@+id/episodes"
+        style="@style/AppTheme.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/episodesTV"
+        app:layout_constraintTop_toBottomOf="@id/dimensionsTV"
+        tools:text="3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

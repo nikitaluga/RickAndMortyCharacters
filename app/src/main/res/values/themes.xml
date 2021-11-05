@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.RickAndMortyCharacters" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +12,34 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppTheme.BackgroundRecycler">
+        <item name="android:background">@color/color_on_background_light</item>
+    </style>
+
+    <style name="AppTheme.Card">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <style name="AppTheme.Text" parent="AppTheme">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="AppTheme.Text.Bold" parent="AppTheme.Text">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppTheme.Text.Auxiliary" parent="AppTheme.Text">
+        <item name="android:textColor">@color/card_background_dark</item>
+    </style>
+
+    <style name="AppTheme.DetailsImage">
+        <item name="android:foreground">@drawable/gradient_linear_white</item>
     </style>
 </resources>

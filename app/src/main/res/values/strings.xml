@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">RickAndMortyCharacters</string>
+    <string name="last_know_location">Last know location:</string>
+    <string name="hyphen">-</string>
+    <string name="first_seen_in">First seen in:</string>
+    <string name="gender">Gender:</string>
+    <string name="origin">Origin:</string>
+    <string name="location">Location:</string>
+    <string name="type">Type:</string>
+    <string name="dimensions">Dimensions:</string>
+    <string name="episodes">Episodes:</string>
+    <string name="no_internet_connection">Проверьте соединение с интернетом</string>
 </resources>
