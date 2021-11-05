@@ -37,7 +37,12 @@ class CharactersViewModel @Inject constructor(
         viewModelScope.launch {
             runCatching {
                 val deferredCharacters = async {
-                    repository.getCharacters()
+                    try {
+                        repository.getCharacters()
+                    } catch (ex: Exception) {
+                        emptyList()
+                    }
+
                 }
                 val charactersResult = deferredCharacters.await()
 
@@ -59,7 +64,11 @@ class CharactersViewModel @Inject constructor(
             viewModelScope.launch {
                 runCatching {
                     val deferredCharacters = async {
-                        repository.getCharacters(pageNumber + 1)
+                        try {
+                            repository.getCharacters(pageNumber + 1)
+                        } catch (ex: Exception) {
+                            emptyList()
+                        }
                     }
                     val charactersResult = deferredCharacters.await()
 

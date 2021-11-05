@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rickandmortycharacters.data.CharactersRepository
+import com.rickandmortycharacters.data.model.CharacterData
 import com.rickandmortycharacters.data.model.CharacterLocationResult
+import com.rickandmortycharacters.data.model.LocationResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -25,10 +27,18 @@ class DetailsViewModel @Inject constructor(
             _characterState.postValue(State.LoadState)
             runCatching {
                 val deferredCharacter = async {
-                    repository.getCharacter(id)
+                    try {
+                        repository.getCharacter(id)
+                    } catch (ex: Exception) {
+                        CharacterData()
+                    }
                 }
                 val deferredLocation = async {
-                    repository.getLocation(id)
+                    try {
+                        repository.getLocation(id)
+                    } catch (ex: Exception) {
+                        LocationResponse()
+                    }
                 }
                 val resultCharacter = deferredCharacter.await()
                 val resultLocation = deferredLocation.await()

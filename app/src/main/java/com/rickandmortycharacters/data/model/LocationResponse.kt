@@ -9,9 +9,9 @@ import kotlinx.parcelize.Parcelize
 @JsonClass(generateAdapter = true)
 data class LocationResponse(
     @Json(name = "name")
-    val name: String,
+    val name: String = "",
     @Json(name = "type")
-    val type: String,
+    val type: String = "",
     @Json(name = "dimension")
-    val dimension: String,
+    val dimension: String = "",
 ): Parcelable
