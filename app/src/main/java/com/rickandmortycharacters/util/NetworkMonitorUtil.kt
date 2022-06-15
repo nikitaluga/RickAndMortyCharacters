@@ -22,16 +22,16 @@ class NetworkMonitorUtil(context: Context) {
 
     lateinit var result: ((isAvailable: Boolean, type: ConnectionType?) -> Unit)
 
-    @Suppress("DEPRECATION")
     fun register() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // Use NetworkCallback for Android 9 and above
-            val connectivityManager = mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val connectivityManager =
+                mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
             if (connectivityManager.activeNetwork == null) {
 
                 // UNAVAILABLE
-                result(false,null)
+                result(false, null)
             }
 
             // Check when the connection changes
@@ -43,18 +43,15 @@ class NetworkMonitorUtil(context: Context) {
                     result(false, null)
                 }
 
-                override fun onCapabilitiesChanged(network: Network, networkCapabilities: NetworkCapabilities) {
+                override fun onCapabilitiesChanged(
+                    network: Network,
+                    networkCapabilities: NetworkCapabilities
+                ) {
                     super.onCapabilitiesChanged(network, networkCapabilities)
                     when {
-                        networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
-
-                            // WIFI
-                            result(true,ConnectionType.Wifi)
-                        }
-                        else -> {
-                            // CELLULAR
-                            result(true,ConnectionType.Cellular)
-                        }
+                        networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ->
+                            result(true, ConnectionType.Wifi)
+                        else -> result(true, ConnectionType.Cellular)
                     }
                 }
             }
@@ -77,32 +74,24 @@ class NetworkMonitorUtil(context: Context) {
         }
     }
 
-    @Suppress("DEPRECATION")
     private val networkChangeReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
 
-            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            val connectivityManager =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val network = connectivityManager.activeNetwork
+            val capabilities = connectivityManager.getNetworkCapabilities(network)
 
-            if (activeNetworkInfo != null) {
-                // Get Type of Connection
-                when (activeNetworkInfo.type) {
-                    ConnectivityManager.TYPE_WIFI -> {
-
-                        // WIFI
-                        result(true, ConnectionType.Wifi)
-                    }
-                    else -> {
-
-                        // CELLULAR
-                        result(true, ConnectionType.Cellular)
-                    }
-                }
-            } else {
-
-                // UNAVAILABLE
+            if (capabilities == null) {
                 result(false, null)
+                return
             }
+
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI))
+                result(true, ConnectionType.Wifi)
+            else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
+                result(true, ConnectionType.Cellular)
+
         }
     }
 }

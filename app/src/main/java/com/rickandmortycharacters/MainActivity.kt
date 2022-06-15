@@ -39,11 +39,11 @@ class MainActivity : AppCompatActivity() {
                     true -> {
                         when (type) {
                             ConnectionType.Wifi -> {
-                                Timber.i("NETWORK_MONITOR_STATUS", "Wifi Connection")
+                                Timber.i( "Wifi Connection")
                                 isVisibleView(true)
                             }
                             ConnectionType.Cellular -> {
-                                Timber.i("NETWORK_MONITOR_STATUS", "Cellular Connection")
+                                Timber.i("Cellular Connection")
                                 isVisibleView(true)
                             }
                             else -> isVisibleView(false)
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     false -> {
                         isVisibleView(false)
-                        Timber.i("NETWORK_MONITOR_STATUS", "No Connection")
+                        Timber.i("No Connection")
                     }
                 }
             }
